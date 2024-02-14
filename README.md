@@ -6,24 +6,24 @@
 El proyecto consta de varios scripts de Python y carpetas:
 
 
-|____artifacts
-|____data
-| |____inference
-| | |____test.csv
-| |____predictions
-| | |____data_predicted.csv
-| |____prep
-| |____raw
-| | |____train.csv
-|____inference.py
-|____notebooks
-| |____EDA.ipynb
-| |____Prototipo.ipynb
-|____prep.py
-|____src
-| |____metrics.py
-| |____outils.py
-|____train.py
+|____artifacts  
+|____data  
+| \____inference  
+| | \____test.csv  
+| \____predictions  
+| | \____data_predicted.csv  
+| \____prep  
+| \____raw  
+| | \____train.csv  
+|____inference.py  
+|____notebooks  
+| |____EDA.ipynb  
+| |____Prototipo.ipynb  
+|____prep.py  
+|____src  
+| |____metrics.py  
+| |____outils.py  
+|____train.py  
 
 
 artifacts/: Esta carpeta contiene los modelos entrenados y las métricas de evaluación.
