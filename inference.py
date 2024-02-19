@@ -1,7 +1,11 @@
+"""
+Este script realiza la inferencia de un modelo de Machine Learning
+para calcular precios de casas.
+"""
+
 # Importar las librerías necesarias
-import pandas as pd
 import numpy as np
-import joblib
+
 # Importar las funciones necesarias desde outils.py
 from src.outils import get_features, load_model, load_dataframe, save_dataframe
 
@@ -16,8 +20,8 @@ selector = load_model('data/prep/selector.pkl')
 features = get_features()
 
 # Cargar los datos de predicción
-predict_path = 'data/inference/test.csv'
-df_predict = load_dataframe(predict_path)
+PREDICT_PATH = 'data/inference/test.csv'
+df_predict = load_dataframe(PREDICT_PATH)
 
 # Preparar los datos de predicción
 X_predict = df_predict[features]
@@ -31,7 +35,8 @@ predictions = best_model.predict(X_predict_selected)
 df_predict['SalePrice'] = np.exp(predictions)
 
 # Guardar el DataFrame como un archivo CSV
-output_path = 'data/predictions/data_predicted.csv'
-save_dataframe(df_predict, output_path)
+OUTPUT_PATH = 'data/predictions/data_predicted.csv'
+save_dataframe(df_predict, OUTPUT_PATH)
 
-print('Se ha generado un archivo con la predicción de precios de casas, puede proceder a descargarlo de la carpeta data/predictions.')
+print('Se ha generado un archivo con la predicción de precios de casas, '
+      'puede proceder a descargarlo de la carpeta data/predictions.')

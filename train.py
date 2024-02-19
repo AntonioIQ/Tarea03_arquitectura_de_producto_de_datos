@@ -1,16 +1,18 @@
+
+"""
+Este script realiza el entrenamiento de un modelo
+de Machine Learning para calcular precios de casas.
+"""
+
 # Importar las librerías necesarias
-# train.py
+
+import pandas as pd
+from sklearn.model_selection import GridSearchCV
+from xgboost import XGBRegressor
 
 # Importar las funciones necesarias desde outils.py y metrics.py
 from src.outils import load_model, load_numpy_data, save_model, save_dataframe
-from src.metrics import mean_absolute_percentage_error, evaluate_model
-
-# Importar las librerías necesarias
-from sklearn.model_selection import GridSearchCV
-from xgboost import XGBRegressor
-import pandas as pd
-import numpy as np
-import joblib
+from src.metrics import evaluate_model
 
 # Cargar los datos preprocesados
 X_train_selected = load_numpy_data('data/prep/X_train_selected.npy')
@@ -62,5 +64,6 @@ df_metrics = pd.concat([df_metrics, df_metrics_test])
 # Guardar el DataFrame de métricas actualizado como un archivo .txt en la carpeta artifacts
 save_dataframe(df_metrics, 'artifacts/evaluation.txt')
 
-print('El entrenamiento del modelo se ha realizado con exito. La métrica evaluada se ubica en la carpeta artifacts con el nombre de evaluation.txt, puede proceder a generar predicciones.')
-
+print('El entrenamiento del modelo se ha realizado con exito. La métrica evaluada se '
+      'ubica en la carpeta artifacts con el nombre de evaluation.txt, puede proceder a '
+      'generar predicciones.')
